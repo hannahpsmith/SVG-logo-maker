@@ -1,12 +1,20 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 const shapes = require('./lib/shapes.js');
+const logos = require('./lib/logos.js');
 
 const questions = [
     {
       type: 'input',
       message: 'Please provide up to three characters for the text of your logo',
       name: 'text'
+        validate: function(input) {
+          if (input.length >= 4) {
+            return 'Please enter a max of 3 characters'
+          } else {
+            return true;
+          }
+        }
     },
     {
       type: 'input',
@@ -35,10 +43,11 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then(data => {
-        return shapes(data);
+        return logos(data);
     })
     .then(data => {
         return writeToFile('logo.svg', data);
     })
 }
+
 init();
