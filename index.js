@@ -7,7 +7,7 @@ const questions = [
     {
       type: 'input',
       message: 'Please provide up to three characters for the text of your logo',
-      name: 'text'
+      name: 'text',
         validate: function(input) {
           if (input.length >= 4) {
             return 'Please enter a max of 3 characters'
@@ -34,20 +34,11 @@ const questions = [
     },
 ];
 
-function writeToFile(fileName, data) {
-    fs.writeFile('logo.svg', data, (err) => {
-      err ? console.log('There has been an error. Please try again.') : console.log('Your SVG logo was successfully generated!')
-    });
+function newLogo() {
+  inquirer.prompt(questions)
+  .then(data => fs.writeFile(`${data.text}.svg`, logos(data)))
+  .then(() => console.log('Your SVG logo was successfully generated!'))
+  .catch((err) => console.log('There has been an error. Please try again.'));
 }
 
-function init() {
-    inquirer.prompt(questions)
-    .then(data => {
-        return logos(data);
-    })
-    .then(data => {
-        return writeToFile('logo.svg', data);
-    })
-}
-
-init();
+newLogo();
