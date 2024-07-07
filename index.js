@@ -21,7 +21,7 @@ const questions = [
     {
       type: 'input',
       message: 'Enter a text color',
-      name: 'text color'
+      name: 'textColor'
     },
     {
       type: 'list',
@@ -32,7 +32,7 @@ const questions = [
     {
       type: 'input',
       message: 'Enter a shape color',
-      name: 'shape color'
+      name: 'shapeColor'
     },
 ];
 
