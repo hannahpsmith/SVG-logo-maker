@@ -3,7 +3,7 @@ const fs = require('fs');
 const shapes = require('./lib/shapes.js');
 const { writeFile } = require('fs/promises');
 const { newLogo } = require('./lib/logos');
-const { error } = require("console");
+// const { error } = require("console");
 
 const questions = [
     {
@@ -40,7 +40,7 @@ function makeLogo() {
   inquirer.prompt(questions)
   .then(data => writeFile(`${data.text}.svg`, newLogo(data)))
   .then(() => console.log('Your SVG logo was successfully generated!'))
-  .catch((err) => console.log(err));
+  .catch((err) => console.log('There has been an error.'));
 }
 
 makeLogo();
