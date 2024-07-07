@@ -1,7 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 const shapes = require('./lib/shapes.js');
-const logos = require('./lib/logos.js');
+const { writeFile } = require('fs/promises');
+const { newLogo } = require('./lib/logos');
+const { error } = require("console");
 
 const questions = [
     {
@@ -34,11 +36,11 @@ const questions = [
     },
 ];
 
-function newLogo() {
+function makeLogo() {
   inquirer.prompt(questions)
-  .then(data => fs.writeFile(`${data.text}.svg`, logos(data)))
+  .then(data => writeFile(`${data.text}.svg`, newLogo(data)))
   .then(() => console.log('Your SVG logo was successfully generated!'))
-  .catch((err) => console.log('There has been an error. Please try again.'));
+  .catch((err) => console.log(err));
 }
 
-newLogo();
+makeLogo();
