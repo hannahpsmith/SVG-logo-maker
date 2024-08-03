@@ -18,7 +18,7 @@ The user should run npm i to install dependencies, inquirer for question prompts
 ## Usage
 Once the repository has been cloned and node is installed, the user should navigate to the repository folder and enter node index.js in the command line. The user will then answer all the generated questions. Entering up to 3 characters for the logo text and the color they'd like the text to be, as well as the shape of the logo (circle, triangle, or square), and the color for the shape. The SVG logo file will then be generated in the repository.
 
-[Recording of demonstration](https://drive.google.com/file/d/17TeFlTzn75LM7HuILMbJp78eA5_HgGzU/view)
+[Recording of demonstration](https://drive.google.com/file/d/1xjPdqlYTe2mieh6A4mmEVNaiFrNewq__/view?usp=sharing)
 
 ## License
 This project is licensed under the MIT license. Please feel free to read the license in full detail [here](https://opensource.org/license/mit)
